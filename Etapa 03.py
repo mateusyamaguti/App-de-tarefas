@@ -50,41 +50,13 @@ def adicionar_item_tarefa(tarefa):
 
     canvas_interior.update_idletasks()
     canvas.config(scrollregion=canvas.bbox("all"))
+
 # Carregar ícones (assegure-se que os arquivos estão na mesma pasta que o script)
 icon_editar = PhotoImage(file="edit.png").subsample(20, 20)  # Ajuste conforme necessário
 icon_deletar = PhotoImage(file="delete.png").subsample(20, 20)  # Ajuste conforme necessário
-''' Precisa adicionar a função adicionar tarefa no botao_adicionar (..., command = adicionar_tarefa)''' 
+''' Precisa adicionar a função adicionar tarefa no botao_adicionar (..., command = adicionar_tarefa)'''    
 
 # FIM da ETAPA 3 - Adicionar funções para adicionar tarefas - Parte 1
-
-# ETAPA 4 - Adicionar funções para adicionar tarefas - Parte 2
-
-def preparar_edicao(frame_tarefa, label_tarefa):
-    global frame_em_edicao
-    frame_em_edicao = frame_tarefa
-    entrada_tarefa.delete(0, tk.END)
-    entrada_tarefa.insert(0, label_tarefa.cget("text"))
-
-def atualizar_tarefa(nova_tarefa):
-    global frame_em_edicao
-    for widget in frame_em_edicao.winfo_children():
-        if isinstance(widget, tk.Label):
-            widget.config(text=nova_tarefa)
-
-def deletar_tarefa(frame_tarefa):
-    frame_tarefa.destroy()
-    canvas_interior.update_idletasks()
-    canvas.config(scrollregion=canvas.bbox("all"))
-
-def alternar_sublinhado(label):
-    fonte_atual = label.cget("font")
-    if "overstrike" in fonte_atual:
-        nova_fonte = fonte_atual.replace(" overstrike", "")
-    else:
-        nova_fonte = fonte_atual + " overstrike"
-    label.config(font=nova_fonte)
-
-# FIM ETAPA 4 - Adicionar funções para adicionar tarefas - Parte 2
 
 # Criar cabeçalho do aplicativo
 fonte_cabecalho = font.Font(family="Garamond", size=24, weight="bold")
